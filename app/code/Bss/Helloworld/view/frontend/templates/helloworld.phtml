@@ -1,0 +1,166 @@
+<?php
+//echo __('Hello World'); ?>
+
+<h1 class="title-form">
+    <?php echo __('Contact me'); ?>
+</h1>
+<div class="separator"><span>×××</span></div>
+<div class="section-subtitle">I'll be glad to answer your questions!</div>
+<script type="text/javascript">
+    function myFunction(){
+        var txtmes = document.getElementsByClassName("mes-error")[0];
+        txtmes.innerText = "";
+
+        var txtmath = document.getElementById("human");
+        if (parseInt(txtmath.value)  != 5){
+            txtmes.innerText = "Umh, are you good with math?";
+            return false;
+        }
+
+        var txtname = document.getElementById("firstname");
+        if (txtname.value == ""){
+            txtmes.innerText = "Please, write your name.";
+            return false;
+        }
+
+        var txtemail = document.getElementById("useremail");
+        if (txtemail.value =="")  {
+            txtmes.innerText = "Please, insert your email address.";
+            return false;
+        }
+
+        var txt_mes_form = document.getElementById("form-mes");
+        if (txt_mes_form.value == "") {
+            txtmes.innerText = "Please, leave a message.";
+            return false;
+        }
+
+        var frm = document.getElementById("my-custom-form");
+        if(!frm.checkValidity()){
+
+        }else{
+            document.getElementsByClassName('btn-submit')[0].style.display = 'none';
+            document.getElementsByClassName('human-math')[0].style.display = 'none';
+            txtmes.innerText = "Message received! Thanks";
+            return true;
+        }
+
+    }
+</script>
+<form name="test-form" id="my-custom-form" action="" method="post">
+    <input type="text" id="firstname" name="firstname" class="input-text required-entry" data-bind="attr: {placeholder: ('Name')}"/>
+    <input type="email" name="useremail" id="useremail" class="input-text required-entry required validate-email" data-bind="attr: {placeholder: ('Email address')}"/>
+    <input type="text" id="subject" name="subject" class="input-text required-entry" data-bind="attr: {placeholder: ('Subject')}"/>
+    <textarea type="text" rows="4" cols="50" data-bind="attr: {placeholder: ('Your message')}" id="form-mes"></textarea>
+
+    <input type="submit" name="submit" class="btn-submit" value="<?php echo __('Submit') ?>" onclick="return myFunction()" />
+
+    <div class="human-math right">2 + 3 = <input type="text" name="human" id="human" class="input-math"></div>
+
+
+    <p class="mes-error"></p>
+</form>
+
+
+
+
+<style type="text/css">
+    .page-wrapper{
+        background-color: #4c5057;
+    }
+    .page-header{
+        background-color: #fff;
+    }
+    .title-form{
+        text-shadow: 1px 2px #484A4D, 3px 4px #D4CEBF;
+        text-transform: uppercase;
+        font-size: 70px;
+        text-align: center;
+        color: #F6EDD8;
+        font-family: "BazarMedium";
+        margin-bottom: 5px;
+    }
+    #my-custom-form{
+        width: 60%;
+        margin: 0 auto;
+    }
+    #my-custom-form .input-text{
+        border: 0px;
+        margin-bottom: 15px;
+        -webkit-border-radius: 3px;
+        -moz-border-radius: 3px;
+        border-radius: 3px;
+    }
+    .separator {
+        font-size: 22px;
+        text-align: center;
+        line-height: 22px;
+        color: #F6EDD8;
+    }
+    .separator span {
+        position: relative;
+        display: inline-block;
+    }
+    .separator span:before,
+    .separator span:after {
+        border-bottom: 2px solid #F6EDD8;
+        content: "";
+        position: absolute;
+        height: 6px;
+        top: 5px;
+        width: 40px;
+    }
+    .separator span:before {
+        right: 100%;
+        margin-right: 8px;
+    }
+    .section-subtitle {
+        text-transform: uppercase;
+        text-align: center;
+        color: #F6EDD8;
+        margin-top: 2px;
+        margin-bottom: 30px;
+    }
+    #my-custom-form textarea{
+        -webkit-border-radius: 3px;
+        -moz-border-radius: 3px;
+        border-radius: 3px;
+    }
+    #my-custom-form .btn-submit{
+        display: inline-block;
+        line-height: 1.8;
+        font-weight: 700;
+        padding: 4px 16px;
+        margin-bottom: 4px;
+        color: #383A3C;
+        background-color: #FCFAF7;
+        -webkit-border-radius: 3px;
+        -moz-border-radius: 3px;
+        -o-border-radius: 3px;
+        border-radius: 3px;
+        -webkit-box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+        -moz-box-shadow: 1px 1px 1px rgba(0,0,0,0.2);
+        -o-box-shadow: 1px 1px 1px rgba(0,0,0,0.2);
+        box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+        border: 0px;
+        margin-top: 10px;
+    }
+    .human-math{
+        width: 20%;
+        float: right;
+        color: #fff;
+        text-align: right;
+    }
+    .human-math .input-math{
+        width: 40% !important;
+        -webkit-border-radius: 3px;
+        -moz-border-radius: 3px;
+        border-radius: 3px;
+    }
+    .mes-error{
+        color: #F6EDD8;
+        text-align: left;
+        display: block;
+    }
+
+</style>
